@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title></title>
+  </head>
+  <body>
+    <ng-lottie
+      [options]="options"
+      (animationCreated)="animationCreated($event)"
+    ></ng-lottie>
+
+    <div>
+      <h3 style="margin-left: 11.5rem">Speed: {{ animationSpeed }}x</h3>
+      <div
+        class="range-container"
+        style="margin-left: 10.5rem; margin-bottom: 2rem"
+      >
+        <input
+          #range
+          type="range"
+          value="1"
+          min="0"
+          max="3"
+          step="0.2"
+          (change)="setSpeed(range.value)"
+        />
+      </div>
+    </div>
+
+    <div class="flex-container">
+      <div style="font-size: 3rem; color: lightgreen">
+        <fa-icon [icon]="faPlayCircle" (click)="play()"></fa-icon>
+      </div>
+      <div style="font-size: 3rem; color: yellow">
+        <fa-icon [icon]="faPauseCircle" (click)="pause()"></fa-icon>
+      </div>
+      <div style="font-size: 3rem; color: red">
+        <fa-icon [icon]="faStopCircle" (click)="stop()"></fa-icon>
+      </div>
+    </div>
+  </body>
+</html>
